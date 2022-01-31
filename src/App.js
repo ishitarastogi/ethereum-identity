@@ -11,9 +11,26 @@ const endpoint = "https://ceramic-clay.3boxlabs.com"
 
 
 function App() {
+  const [name, setName] = useState('')
+  const [image, setImage] = useState('')
+  const [loaded, setLoaded] = useState(false)
+
+  async function connect() {
+    const addresses = await window.ethereum.request({
+      method: 'eth_requestAccounts'
+    })
+    console.log(addresses)
+    return addresses
+  }
+  async function readProfile() {
+    const [addresses]=await connect()
+    
+  }
+
   return (
     <div className="App">
 
+<button onClick={connect}>connect</button>
 
     </div>
   );
